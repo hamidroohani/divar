@@ -23,8 +23,9 @@
                         </div>
                         <div class="panel-footer">
                             <span style="float: right"><b>گروه :</b>{{$categories[$items[$i]->category_id-1]->title}}</span>
-                            <span style="margin: 0 40px"><b>قیمت :</b>{{$items[$i]->price}}</span>
+                            <span style="position: absolute;left: 40%"><b>قیمت :</b>{{$items[$i]->price}}</span>
                             <span style="float: left"><b>محله :</b>{{$items[$i]->position}}</span>
+                            <div class="clearfix"></div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
