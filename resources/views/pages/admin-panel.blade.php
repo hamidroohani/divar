@@ -62,7 +62,7 @@
                                     <span class="acc_del" style="float: right">
                                         <a href="/admin-panel/items/accept/{{ $item->id }}">Accept</a>
                                     </span>
-                                        <a href="/information/{{ $item->id }}">{{$item->title}}</a>
+                                        <a href="/admin-panel/items/information/{{ $item->id }}">{{$item->title}}</a>
                                     <span class="acc_del" style="float: left">
                                         <a href="/admin-panel/items/delete/{{ $item->id }}">Delete</a>
                                     </span>

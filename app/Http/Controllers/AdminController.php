@@ -40,6 +40,14 @@ class AdminController extends Controller
         return back();
     }
 
+    public function info_items($id)
+    {
+        $item = DB::table('items')->where('id',$id)->get();
+        $item = $item[0];
+        $categories = Category::all();
+        return view('pages.info',compact('item','categories'));
+    }
+
     public function delete_items(Request $request)
     {
         DB::table('items')->where('id',$request->items_id)->delete();

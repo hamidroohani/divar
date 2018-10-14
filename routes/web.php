@@ -32,6 +32,7 @@ Route::group(['middleware' => AdminAuth::class],function (){
     Route::get('/admin-panel/users/delete','AdminController@delete_users');
     Route::get('/admin-panel/items','AdminController@items');
     Route::get('/admin-panel/items/accept/{id}','AdminController@accept_items');
+    Route::get('/admin-panel/items/information/{id}','AdminController@info_items');
     Route::get('/admin-panel/items/delete','AdminController@delete_items');
     Route::get('/admin-panel/category','AdminController@categories');
     Route::get('/admin-panel/add_category','AdminController@add_category');

@@ -24,7 +24,14 @@ class ItemController extends Controller
         $item = DB::table('items')->where('id',$id)->get();
         $item = $item[0];
         $categories = Category::all();
-        return view('pages.info',compact('item','categories'));
+        if($item->show)
+        {
+            return view('pages.info',compact('item','categories'));
+        }elseif (Auth::check() && Auth::user()->id == $item->user_id)
+        {
+            return view('pages.info',compact('item','categories'));
+        }
+        return back();
     }
 
     public function my_items(Item $item)
