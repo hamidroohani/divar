@@ -17,7 +17,7 @@ class AdminAuth
     public function handle($request, Closure $next)
     {
         if (Auth::check()){
-            if (Auth::user()->name != "hamid"){
+            if (Auth::user()->name != "Hamid"){
                 return redirect('/');
             }
             return $next($request);

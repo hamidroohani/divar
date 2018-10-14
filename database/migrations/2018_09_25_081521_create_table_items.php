@@ -22,6 +22,7 @@ class CreateTableItems extends Migration
             $table->integer('img_id');
             $table->integer('price');
             $table->string('tel');
+            $table->boolean('show');
             $table->timestamps();
 
             $table->foreign("category_id")->references('id')->on('categories')->onDelete('cascade');

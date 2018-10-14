@@ -32,6 +32,7 @@ class InsertController extends Controller
         $item->position = $request->position;
         $item->price = $request->price;
         $item->tel = $request->tel;
+        $item->show = 0;
         if ($request->img_id)
         {
             $path = request()->file('img_id')->store('avatar');

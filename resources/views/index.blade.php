@@ -11,6 +11,7 @@
         @endif
         <div class="row">
             @for($i = (count($items)) - 1; $i >= 0; $i--)
+                @if($items[$i]->show)
                 <div class="col-sm-4">
                     <div class="panel panel-default">
                         <div class="panel-heading centeralign">
@@ -19,7 +20,6 @@
                             </a>
                         </div>
                         <div class="panel-body">
-                            {{--                            {{ dd(\Illuminate\Support\Facades\Storage::get('avatar/avatar.jpg')) }}--}}
                             <img src="{{ asset("storage/".$items[$i]->img_id) }}" class="img-responsive"
                                  style="width:100%;height: 50%" alt="This post has not picture">
                         </div>
@@ -32,6 +32,7 @@
                         <div class="clearfix"></div>
                     </div>
                 </div>
+                @endif
             @endfor
         </div>
     </div>

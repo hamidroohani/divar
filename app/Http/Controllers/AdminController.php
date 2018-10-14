@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Item;
 use App\Position;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,8 +29,15 @@ class AdminController extends Controller
 
     public function items()
     {
-        $items = DB::table('items')->get();
-        return view('pages.admin-panel',compact('items'));
+        $categories = Category::all();
+        $items = Item::all();
+        return view('pages.admin-panel',compact('items','categories'));
+    }
+
+    public function accept_items($id)
+    {
+        DB::table('items')->where('id',$id)->update(['show' => true]);
+        return back();
     }
 
     public function delete_items(Request $request)
@@ -40,8 +48,8 @@ class AdminController extends Controller
 
     public function categories()
     {
-        $categories = DB::table('categories')->get();
-        return view('pages.admin-panel',compact('categories'));
+        $categories_c = DB::table('categories')->get();
+        return view('pages.admin-panel',compact('categories_c'));
     }
 
     public function add_category(Request $request)
