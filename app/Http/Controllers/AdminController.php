@@ -48,9 +48,9 @@ class AdminController extends Controller
         return view('pages.info',compact('item','categories'));
     }
 
-    public function delete_items(Request $request)
+    public function delete_items($id)
     {
-        DB::table('items')->where('id',$request->items_id)->delete();
+        DB::table('items')->where('id',$id)->delete();
         return back();
     }
 

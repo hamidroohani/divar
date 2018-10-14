@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 floatright">
+            <div class="col-lg-4">
                 <div class="panel">
                     <div class="panel-heading floatright">
                         <h4>دسته بندی ها</h4>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-8" style="float: left">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         @if(isset($items))
