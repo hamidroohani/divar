@@ -16,37 +16,38 @@
 </style>
 @section('content')
     @if(isset($users))
-        <div class="col-lg-3" style="position: relative;left: 20%;top: 10%">
-            <h2>List Of Users <span class="label label-primary pull-right" id="edit"><a href="#">Edit</a></span></h2>
-            <br>
-            <div class="container">
-                <div class="row col-sm-8">
-                    <form action="/admin-panel/users/delete" method="get">
-                        <table class="table">
-                            <thead>
+        <br>
+        <div class="container">
+            <div class="row col-lg-2"></div>
+            <div class="row col-sm-8">
+                <h2>List Of Users <span class="label label-primary pull-right" id="edit"><a href="#" style="color: white">Edit</a></span>
+                </h2>
+                <form action="/admin-panel/users/delete" method="get">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($users as $user)
                             <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <td>
+                                    <input type="checkbox" value="{{ $user->id }}" name="user_id[]">
+                                    {{ $user->id }}
+                                </td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($users as $user)
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" value="{{ $user->id }}" name="user_id[]">
-                                        {{ $user->id }}
-                                    </td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                        <button class="btn btn-primary" id="btn-del">Delete</button>
-                    </form>
-                </div>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary" id="btn-del">Delete</button>
+                </form>
             </div>
+            <div class="row col-lg-2"></div>
         </div>
     @endif
 
@@ -63,7 +64,7 @@
                                         <a href="/admin-panel/items/accept/{{ $item->id }}">Accept</a>
                                     </span>
                                         <a href="/admin-panel/items/information/{{ $item->id }}">{{$item->title}}</a>
-                                    <span class="acc_del" style="float: left">
+                                        <span class="acc_del" style="float: left">
                                         <a href="/admin-panel/items/delete/{{ $item->id }}">Delete</a>
                                     </span>
                                     </h4>
@@ -88,58 +89,58 @@
     @endif
 
     @if(isset($categories_c))
-        <div class="col-lg-3" style="position: relative;left: 20%;top: 10%">
-            <h2>List of Categories</h2><br>
-            <div class="container">
-                <div class="row col-sm-8">
-                    <ul class="list-group" style="direction: rtl">
-                        @foreach($categories_c as $category)
-                            <li class="list-group-item">{{ $category->title }}
-                                <span class="label label-danger pull-left">
+        <div class="container">
+            <div class="row col-lg-2"></div>
+            <div class="row col-lg-8">
+                <h2 style="text-align: center">List of Categories</h2><br>
+                <ul class="list-group" style="direction: rtl">
+                    @foreach($categories_c as $category)
+                        <li class="list-group-item">{{ $category->title }}
+                            <span class="label label-danger pull-left">
                             <a href="/admin-panel/category/delete/{{ $category->id }}">Delete</a>
                         </span>
-                                <span id="{{ $category->id }}" class="label label-info pull-left">
+                            <span id="{{ $category->id }}" class="label label-info pull-left">
                             <a href="">Change</a>
                         </span><span id="{{ $category->id }}to"></span></li>
-                        @endforeach
-                    </ul>
-                    <br>
-                    <hr>
-                    <h3>Add New One</h3>
-                    <form action="/admin-panel/add_category" method="get">
-                        <input type="text" style="direction: rtl" name="title" class="form-control"><br>
-                        <input type="submit" class="form-control btn-primary" value="Add">
-                    </form>
-                </div>
+                    @endforeach
+                </ul>
+                <br>
+                <hr>
+                <h3>Add New One</h3>
+                <form action="/admin-panel/add_category" method="get">
+                    <input type="text" style="direction: rtl" name="title" class="form-control"><br>
+                    <input type="submit" class="form-control btn-primary" value="Add">
+                </form>
             </div>
+            <div class="row col-lg-2"></div>
         </div>
     @endif
 
     @if(isset($locations))
-        <div class="col-lg-3" style="position: relative;left: 20%;top: 10%">
-            <h2>List of Locations</h2><br>
-            <div class="container">
-                <div class="row col-sm-8">
-                    <ul class="list-group" style="direction: rtl">
-                        @foreach($locations as $location)
-                            <li class="list-group-item">{{ $location->title }}
-                                <span class="label label-danger pull-left">
+        <div class="container">
+            <div class="row col-lg-2"></div>
+            <div class="row col-sm-8">
+                <h2>List of Locations</h2><br>
+                <ul class="list-group" style="direction: rtl">
+                    @foreach($locations as $location)
+                        <li class="list-group-item">{{ $location->title }}
+                            <span class="label label-danger pull-left">
                             <a href="/admin-panel/location/delete/{{ $location->id }}">Delete</a>
                         </span>
-                                <span id="{{ $location->id }}" class="label label-info pull-left">
+                            <span id="{{ $location->id }}" class="label label-info pull-left">
                             <a href="">Change</a>
                         </span><span id="{{ $location->id }}to"></span></li>
-                        @endforeach
-                    </ul>
-                    <br>
-                    <hr>
-                    <h3>Add New One</h3>
-                    <form action="/admin-panel/add_location" method="get">
-                        <input type="text" name="title" style="direction: rtl" class="form-control"><br>
-                        <input type="submit" class="form-control btn-primary" value="Add">
-                    </form>
-                </div>
+                    @endforeach
+                </ul>
+                <br>
+                <hr>
+                <h3>Add New One</h3>
+                <form action="/admin-panel/add_location" method="get">
+                    <input type="text" name="title" style="direction: rtl" class="form-control"><br>
+                    <input type="submit" class="form-control btn-primary" value="Add">
+                </form>
             </div>
+            <div class="row col-lg-2"></div>
         </div>
     @endif
 

@@ -3,6 +3,7 @@
     <div style="display: flex;justify-content: center;align-items: center">
         <div class="container">
             <div class="row">
+                <div class="col-lg-3"></div>
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading centeralign"><h4>ایجاد آگهی جدید</h4></div>
@@ -52,6 +53,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3"></div>
             </div>
         </div>
     </div>
