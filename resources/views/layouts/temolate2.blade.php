@@ -79,6 +79,7 @@
                 <li><a href="/admin-panel/category"><b>Categories</b></a></li>
                 <li><a href="/admin-panel/users"><b>Users</b></a></li>
                 <li><a href="/admin-panel/items"><b>Items</b></a></li>
+                <li><a href="/admin-panel/order_items"><b>Order_Items</b></a></li>
                 <li class="floatright"><a href="/"><b>Home</b></a></li>
             </ul>
         </div>

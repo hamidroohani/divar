@@ -46,7 +46,7 @@ class InsertController extends Controller
         fwrite($handler,$str);
         echo fread($handler,1024);
         fclose($handler);
-        Session::flash('message','آگهی با موفقیت ارسال شد');
+        Session::flash('message','آگهی با موفقیت ارسال شد و در صف انتظار قرار گرفت');
         return redirect('/');
 
     }

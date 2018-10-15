@@ -27,13 +27,15 @@ Route::get('/categories/{id}','CategoryController@show_categories');
 Route::get('/aboutus','ContactController@about_us');
 
 Route::group(['middleware' => AdminAuth::class],function (){
-    Route::get('/admin-panel','AdminController@index');
+    Route::get('/admin-panel','AdminController@order_items');
     Route::get('/admin-panel/users','AdminController@users');
     Route::get('/admin-panel/users/delete','AdminController@delete_users');
     Route::get('/admin-panel/items','AdminController@items');
+    Route::get('/admin-panel/order_items','AdminController@order_items');
     Route::get('/admin-panel/items/accept/{id}','AdminController@accept_items');
     Route::get('/admin-panel/items/information/{id}','AdminController@info_items');
     Route::get('/admin-panel/items/delete','AdminController@delete_items');
+    Route::get('/admin-panel/items/delete/{id}','AdminController@delete_item');
     Route::get('/admin-panel/category','AdminController@categories');
     Route::get('/admin-panel/add_category','AdminController@add_category');
     Route::get('/admin-panel/category/delete/{id}','AdminController@del_category');

@@ -54,7 +54,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4" style="margin-left: 33.5%;">
-                                <button type="submit" style="width: 15%" class="btn btn-primary form-control">
+                                <button type="submit" style="width: 50%" class="btn btn-primary form-control">
                                     {{ __('Login') }}
                                 </button>
 

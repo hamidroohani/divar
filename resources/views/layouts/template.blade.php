@@ -63,14 +63,14 @@
                         </a></li>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-user"></span>
-                            Logout
+                           <b> خروج</b>
                         </a></li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 @else
                     <li><a href="/login"><span class="glyphicon glyphicon-user"></span>
-                            Login
+                            <b> ورود</b>
                         </a></li>
                 @endif
             </ul>

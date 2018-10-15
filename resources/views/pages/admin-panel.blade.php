@@ -20,8 +20,10 @@
         <div class="container">
             <div class="row col-lg-2"></div>
             <div class="row col-sm-8">
-                <h2>List Of Users <span class="label label-primary pull-right" id="edit"><a href="#" style="color: white">Edit</a></span>
+                <h2 class="centeralign">List Of Users <span class="label label-primary pull-right" id="edit"><a href="#"
+                                                                                            style="color: white">Edit</a></span>
                 </h2>
+                <br>
                 <form action="/admin-panel/users/delete" method="get">
                     <table class="table">
                         <thead>
@@ -52,10 +54,60 @@
     @endif
 
     @if(isset($items))
+        <br>
+        <div class="container">
+            <div class="row col-lg-2"></div>
+            <div class="row col-sm-8">
+                <h2 class="centeralign">List Of Items <span class="label label-primary pull-right" id="edit"><a href="#"
+                                                                                            style="color: white">Edit</a></span>
+                </h2>
+                <br>
+                <form action="/admin-panel/items/delete" method="get">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($items as $item)
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="{{ $item->id }}" name="user_id[]">
+                                    {{ $item->id }}
+                                </td>
+                                <td>{{ $item->title }}</td>
+                                <td>{{ $categories[$item->category_id]->title }}</td>
+                                <td>{{ $item->position }}</td>
+                                <td>{{ $item->price }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary" id="btn-del">Delete</button>
+                </form>
+            </div>
+            <div class="row col-lg-2"></div>
+        </div>
+    @endif
+
+    @if(isset($order_items))
         <div class="container">
             <div class="row">
-                @foreach($items as $item)
+                @if(!$order_items[0]->show)
+                @endif
+                <?php
+                $s = 0;
+                ?>
+                @foreach($order_items as $item)
                     @if(!$item->show)
+                        <?php
+                        $s++
+                        ?>
                         <div class="col-sm-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading centeralign">
@@ -84,6 +136,9 @@
                         </div>
                     @endif
                 @endforeach
+                @if($s == 0)
+                        <div class="col-lg-12 centeralign" style="color: red;border: 1px solid black;"><h3>Nothing to show</h3></div>
+                    @endif
             </div>
         </div>
     @endif
@@ -120,7 +175,7 @@
         <div class="container">
             <div class="row col-lg-2"></div>
             <div class="row col-sm-8">
-                <h2>List of Locations</h2><br>
+                <h2 class="centeralign">List of Locations</h2><br>
                 <ul class="list-group" style="direction: rtl">
                     @foreach($locations as $location)
                         <li class="list-group-item">{{ $location->title }}
@@ -146,10 +201,10 @@
 
     <script>
         $(function () {
-            $(".toggle").hide();
+            $("input:checkbox").hide();
             $("#btn-del").hide();
             $('#edit').on('click', function () {
-                $(".toggle").toggle(1000);
+                $("input:checkbox").toggle(1000);
                 $("#btn-del").toggle(1000);
             })
         })

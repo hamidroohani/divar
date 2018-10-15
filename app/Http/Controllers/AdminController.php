@@ -34,6 +34,13 @@ class AdminController extends Controller
         return view('pages.admin-panel',compact('items','categories'));
     }
 
+    public function order_items()
+    {
+        $categories = Category::all();
+        $order_items = Item::all();
+        return view('pages.admin-panel',compact('order_items','categories'));
+    }
+
     public function accept_items($id)
     {
         DB::table('items')->where('id',$id)->update(['show' => true]);
@@ -48,7 +55,13 @@ class AdminController extends Controller
         return view('pages.info',compact('item','categories'));
     }
 
-    public function delete_items($id)
+    public function delete_items(Request $request)
+    {
+        DB::table('items')->where('id',$request->user_id)->delete();
+        return back();
+    }
+
+    public function delete_item($id)
     {
         DB::table('items')->where('id',$id)->delete();
         return back();
