@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
-    
+
     {{--fonts--}}
-    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href='http://www.fontonline.ir/css/BRoya.css' rel='stylesheet' type='text/css'>
     <link href='http://www.fontonline.ir/css/Shams.css' rel='stylesheet' type='text/css'>
     <link href='http://www.fontonline.ir/css/BYekan.css' rel='stylesheet' type='text/css'>
@@ -28,7 +28,7 @@
         }
 
         body{
-            font-family: Sofia, BYekan;
+            font-family: Montserrat, BYekan;
         }
 
         .time_font{
