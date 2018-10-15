@@ -7,6 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+    
+    {{--fonts--}}
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href='http://www.fontonline.ir/css/BRoya.css' rel='stylesheet' type='text/css'>
+    <link href='http://www.fontonline.ir/css/Shams.css' rel='stylesheet' type='text/css'>
+    <link href='http://www.fontonline.ir/css/BYekan.css' rel='stylesheet' type='text/css'>
+    <link href='http://www.fontonline.ir/css/Mj_Silicon.css' rel='stylesheet' type='text/css'>
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: OptimusPrinceps;
+            src: url('{{ public_path('../../assets/fonts/IranianSans.ttf') }}'),
+                 url("{{ public_path('../../assets/fonts/Broya.woff') }}"),
+                 url("{{ public_path('../../assets/fonts/IranianSans.ttf') }}");
+        }
+
+        body{
+            font-family: Sofia, BYekan;
+        }
+
+        .time_font{
+            font-family: BRoya;
+        }
+    </style>
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>

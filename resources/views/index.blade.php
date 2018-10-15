@@ -32,19 +32,24 @@
                             ?>
                             <div class="panel-footer">
                                 <span style="float: right"><b>گروه :</b>{{$categories[$items[$i]->category_id-1]->title}}</span>
-                                    @if($diff_Mon >= 1)
-                                    <span style="position: absolute;left: 40%;direction: rtl">{{ $diff_Mon }}<span> ماه پیش</span></span>
+                                <span class="time_font">
+                                @if($diff_Mon >= 1)
+                                        <span style="position: absolute;left: 40%;direction: rtl">{{ $diff_Mon }}<span> ماه پیش</span></span>
                                     @elseif($diff_Day >= 1 && $diff_Day < 30)
-                                    <span style="position: absolute;left: 40%;direction: rtl">{{ $diff_Day }}<span> روز پیش</span></span>
+                                        <span style="position: absolute;left: 40%;direction: rtl">{{ $diff_Day }}
+                                            <span> روز پیش</span></span>
                                     @elseif($diff_Hourse >= 1 && $diff_Hourse < 24)
-                                    <span style="position: absolute;left: 40%;direction: rtl">{{ $diff_Hourse }}<span> ساعت پیش</span></span>
-                                @elseif($diff_Min >= 1 && $diff_Min < 60)
-                                    <span style="position: absolute;left: 40%;direction: rtl">{{ $diff_Min }}<span> دقیقه پیش</span></span>
+                                        <span style="position: absolute;left: 40%;direction: rtl">{{ $diff_Hourse }}
+                                            <span> ساعت پیش</span></span>
+                                    @elseif($diff_Min >= 1 && $diff_Min < 60)
+                                        <span style="position: absolute;left: 40%;direction: rtl">{{ $diff_Min }}
+                                            <span> دقیقه پیش</span></span>
                                     @elseif($diff_Min < 1)
-                                    <span style="position: absolute;left: 40%">لحظاتی پیش</span>
-                                @endif
-                                    <span style="float: left"><b>محله :</b>{{$items[$i]->position}}</span>
-                                    <div class="clearfix"></div>
+                                        <span style="position: absolute;left: 40%">لحظاتی پیش</span>
+                                    @endif
+                                            </span>
+                                <span style="float: left"><b>محله :</b>{{$items[$i]->position}}</span>
+                                <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
