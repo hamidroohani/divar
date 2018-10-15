@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
-
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -58,20 +57,21 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-left">
                 @if(\Illuminate\Support\Facades\Auth::check())
-                <li><a href="/login"><span class="glyphicon glyphicon-user"></span>
-                        {{ \Illuminate\Support\Facades\Auth::user()->name }}
-                    </a></li>
-                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-user"></span>
-                        Logout
-                    </a></li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+                    <li><a href="/login"><span class="glyphicon glyphicon-user"></span>
+                            {{ \Illuminate\Support\Facades\Auth::user()->name }}
+                        </a></li>
+                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><span
+                                    class="glyphicon glyphicon-user"></span>
+                            Logout
+                        </a></li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 @else
-                <li><a href="/login"><span class="glyphicon glyphicon-user"></span>
-                        Login
-                    </a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-user"></span>
+                            Login
+                        </a></li>
                 @endif
             </ul>
             <ul class="nav navbar-nav floatright" style="direction: rtl">

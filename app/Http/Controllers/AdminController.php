@@ -104,4 +104,5 @@ class AdminController extends Controller
         DB::table('positions')->where('id',$id)->delete();
         return back();
     }
+
 }

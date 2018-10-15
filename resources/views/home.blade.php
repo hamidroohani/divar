@@ -1,28 +1,30 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
+            <div class="col-md-2"></div>
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
-
-                    <div class="card-body">
+                <div class="panel panel-info">
+                    <div class="panel-heading centeralign"><h4>اطلاعات کاربری </h4></div>
+                    <div class="panel-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
 
-                        You are logged in!
+                        <span style="float: right;color: green"><b>!!شما وارد شده اید</b></span>
                         <br>
                         <br>
-                        <ul class="form-control">
-                            <li class="form-control">
-                                <b><i>Name:</i></b> {{ Auth::user()->name }}
+                        <ul class="list-group" style="direction: rtl">
+                            <li class="list-group-item">
+                                <label for=""><b>نام :</b></label>
+                                 <span style="margin-right: 50%">{{ Auth::user()->name }}</span>
                             </li>
-                            <li class="form-control">
-                                <b><i>UserName:</i></b> {{ Auth::user()->email }}
+                            <li class="list-group-item">
+                                <label for="">نام کاربری :</label>
+                                 <span style="margin-right: 40%">{{ Auth::user()->email }}</span>
                             </li>
                         </ul>
                     </div>
