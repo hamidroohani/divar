@@ -34,9 +34,19 @@ class ItemController extends Controller
         return back();
     }
 
-    public function my_items(Item $item)
+    public function my_items()
     {
         $categories = Category::all();
         return view('pages.my_items',compact('categories'));
+    }
+
+    public function search_item(Request $request)
+    {
+        $this->validate($request,[
+            'search' => 'required|min:4'
+        ]);
+        $items = DB::table('items')->where('title', 'like', "%{$request->search}%")->get();
+        $categories = Category::all();
+        return view('pages.search',compact('items','categories'));
     }
 }

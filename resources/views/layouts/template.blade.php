@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
     {{--fonts--}}
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -16,22 +18,19 @@
     <link href='http://www.fontonline.ir/css/Mj_Silicon.css' rel='stylesheet' type='text/css'>
 
 
-
-
-
     <style type="text/css">
         @font-face {
             font-family: OptimusPrinceps;
             src: url('{{ public_path('../../assets/fonts/IranianSans.ttf') }}'),
-                 url("{{ public_path('../../assets/fonts/Broya.woff') }}"),
-                 url("{{ public_path('../../assets/fonts/IranianSans.ttf') }}");
+            url("{{ public_path('../../assets/fonts/Broya.woff') }}"),
+            url("{{ public_path('../../assets/fonts/IranianSans.ttf') }}");
         }
 
-        body{
+        body {
             font-family: Montserrat, BYekan;
         }
 
-        .time_font{
+        .time_font {
             font-family: BRoya;
         }
     </style>
@@ -49,6 +48,27 @@
 
         a:hover {
             text-decoration: none;
+        }
+
+        .search {
+            width: 130px;
+            height: 30px;
+            margin: 10px 0;
+            margin-right: 50px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .search:focus {
+            width: 25%;
         }
 
         /* Remove the navbar's default rounded borders and increase the bottom margin */
@@ -90,8 +110,9 @@
                             {{ \Illuminate\Support\Facades\Auth::user()->name }}
                         </a></li>
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-user"></span>
-                           <b> خروج</b>
+                                                     document.getElementById('logout-form').submit();"><span
+                                    class="glyphicon glyphicon-user"></span>
+                            <b> خروج</b>
                         </a></li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -109,6 +130,12 @@
                 <li><a href="/categories"><b>دسته بندی</b></a></li>
                 <li class="floatright"><a href="/"><b>خانه</b></a></li>
             </ul>
+            <form action="/search_items" method="get">
+                <input type="text" name="search" class="search" style='float:right;direction:rtl' placeholder="جستجو..">
+                <button type="submit" style='float:right;direction:rtl;margin-top: 10px;height: 30px'>
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
         </div>
     </div>
 </nav>

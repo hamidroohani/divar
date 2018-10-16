@@ -22,6 +22,7 @@ Route::group(['middleware'=>'auth'],function (){
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/information/{id}','ItemController@information');
+Route::get('/search_items','ItemController@search_item');
 Route::get('/categories','CategoryController@categories');
 Route::get('/categories/{id}','CategoryController@show_categories');
 Route::get('/aboutus','ContactController@about_us');
