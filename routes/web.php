@@ -39,10 +39,12 @@ Route::group(['middleware' => AdminAuth::class],function (){
     Route::get('/admin-panel/items/delete/{id}','AdminController@delete_item');
     Route::get('/admin-panel/category','AdminController@categories');
     Route::get('/admin-panel/add_category','AdminController@add_category');
+    Route::get('/admin-panel/category/update/{category}','AdminController@update_category');
     Route::get('/admin-panel/category/delete/{id}','AdminController@del_category');
     Route::get('/admin-panel/location','AdminController@location');
     Route::get('/admin-panel/add_location','AdminController@add_location');
     Route::get('/admin-panel/location/delete/{id}','AdminController@del_location');
+    Route::get('/admin-panel/location/update/{position}','AdminController@update_location');
 });
 
 

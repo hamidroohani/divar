@@ -49,9 +49,6 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
-                            @if(count($errors))
-                                <div class="alert alert-danger">Error:{{$errors->first()}}</div>
-                            @endif
                         </div>
                     </div>
                 @endif

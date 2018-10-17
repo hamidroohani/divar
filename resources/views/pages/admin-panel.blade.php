@@ -21,7 +21,7 @@
             <div class="row col-lg-2"></div>
             <div class="row col-sm-8">
                 <h2 class="centeralign">List Of Users <span class="label label-primary pull-right" id="edit"><a href="#"
-                                                                                            style="color: white">Edit</a></span>
+                                                                                                                style="color: white">Edit</a></span>
                 </h2>
                 <br>
                 <form action="/admin-panel/users/delete" method="get">
@@ -59,7 +59,7 @@
             <div class="row col-lg-2"></div>
             <div class="row col-sm-8">
                 <h2 class="centeralign">List Of Items <span class="label label-primary pull-right" id="edit"><a href="#"
-                                                                                            style="color: white">Edit</a></span>
+                                                                                                                style="color: white">Edit</a></span>
                 </h2>
                 <br>
                 <form action="/admin-panel/items/delete" method="get">
@@ -137,8 +137,9 @@
                     @endif
                 @endforeach
                 @if($s == 0)
-                        <div class="col-lg-12 centeralign" style="color: red;border: 1px solid black;"><h3>Nothing to show</h3></div>
-                    @endif
+                    <div class="col-lg-12 centeralign" style="color: red;border: 1px solid black;"><h3>Nothing to
+                            show</h3></div>
+                @endif
             </div>
         </div>
     @endif
@@ -150,13 +151,17 @@
                 <h2 style="text-align: center">List of Categories</h2><br>
                 <ul class="list-group" style="direction: rtl">
                     @foreach($categories_c as $category)
-                        <li class="list-group-item">{{ $category->title }}
+                        <li class="list-group-item">
+                            <span>
+                                {{ $category->title }}
+                            </span>
+                            <span style="display: none">{{ $category->id }}</span>
                             <span class="label label-danger pull-left">
-                            <a href="/admin-panel/category/delete/{{ $category->id }}">Delete</a>
-                        </span>
-                            <span id="{{ $category->id }}" class="label label-info pull-left">
-                            <a href="">Change</a>
-                        </span><span id="{{ $category->id }}to"></span></li>
+                                <a href="/admin-panel/category/delete/{{ $category->id }}">Delete</a>
+                            </span>
+                            <span id="change" class="label label-info pull-left">
+                            <a href="#">Change</a>
+                        </span></li>
                     @endforeach
                 </ul>
                 <br>
@@ -169,6 +174,18 @@
             </div>
             <div class="row col-lg-2"></div>
         </div>
+        <script>
+            $(function () {
+                $("li span#change").on('click', function () {
+                    var title = $(this).parents('li').children('span').eq(0).text();
+                    var cate_id = $(this).parents('li').children('span').eq(1).text();
+                    $(this).parents('li').children('span').eq(0).html("<form action='/admin-panel/category/update/" + cate_id + "'><input type='text' name='title' placeholder=" + title + "><button class='label label-info pull-left'>Okay</button></form>");
+                    $(this).parents('li').children('span').eq(2).html("");
+                    $(this).parents('li').children('span').eq(3).html("");
+
+                })
+            })
+        </script>
     @endif
 
     @if(isset($locations))
@@ -178,13 +195,17 @@
                 <h2 class="centeralign">List of Locations</h2><br>
                 <ul class="list-group" style="direction: rtl">
                     @foreach($locations as $location)
-                        <li class="list-group-item">{{ $location->title }}
+                        <li class="list-group-item">
+                            <span>
+                                {{ $location->title }}
+                            </span>
+                            <span style="display: none"> {{ $location->id }}</span>
                             <span class="label label-danger pull-left">
                             <a href="/admin-panel/location/delete/{{ $location->id }}">Delete</a>
                         </span>
-                            <span id="{{ $location->id }}" class="label label-info pull-left">
-                            <a href="">Change</a>
-                        </span><span id="{{ $location->id }}to"></span></li>
+                            <span id="change" class="label label-info pull-left">
+                                <a href="#">Change</a>
+                        </span></li>
                     @endforeach
                 </ul>
                 <br>
@@ -197,6 +218,18 @@
             </div>
             <div class="row col-lg-2"></div>
         </div>
+        <script>
+            $(function () {
+                $("li span#change").on('click', function () {
+                    var title = $(this).parents('li').children('span').eq(0).text();
+                    var loc_id = $(this).parents('li').children('span').eq(1).text();
+                    $(this).parents('li').children('span').eq(0).html("<form action='/admin-panel/location/update/" + loc_id + "'><input type='text' name='title' placeholder=" + title + "><button class='label label-info pull-left'>Okay</button></form>");
+                    $(this).parents('li').children('span').eq(2).html("");
+                    $(this).parents('li').children('span').eq(3).html("");
+
+                })
+            })
+        </script>
     @endif
 
     <script>

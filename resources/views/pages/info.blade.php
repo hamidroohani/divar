@@ -37,7 +37,7 @@
             <div class="col-lg-6">
                 <div class="panel">
                     <div class="panel-body">
-                        <img src="{{ asset("storage/".$item->img_id) }}" class="img-responsive floatright" style="width:50%;height: 25%" alt="Image">
+                        <img src="{{ asset("storage/".$item->img_id) }}" class="img-responsive floatright" style="width: 400px;height: 450px" alt="Image">
                     </div>
                 </div>
             </div>

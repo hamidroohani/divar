@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/gif" href="{{ asset('img/logo.jpg') }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{--styles--}}
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+
+    {{--scripts--}}
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -42,8 +46,6 @@
     </style>
 </head>
 <body>
-
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -88,7 +90,6 @@
 @yield('content')
 <br><br>
 
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -110,7 +111,9 @@
     </div>
 </div>
 
-
+@if(count($errors))
+    <div class="alert alert-danger">Error:{{$errors->first()}}</div>
+@endif
 <footer class="container-fluid text-center">
     <p>&COPY; <a href="/">Business Rental System</a>. All Rights Resreved 2018.</p>
 </footer>

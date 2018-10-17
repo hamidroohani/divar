@@ -80,6 +80,16 @@ class AdminController extends Controller
         return back();
     }
 
+    public function update_category(Request $request,Category $category)
+    {
+        $this->validate($request,[
+            "title" => "required"
+        ]);
+        $category->title = $request->title;
+        $category->update();
+        return redirect('/admin-panel/category');
+    }
+
     public function del_category($id)
     {
         DB::table('categories')->where('id',$id)->delete();
@@ -103,6 +113,16 @@ class AdminController extends Controller
     {
         DB::table('positions')->where('id',$id)->delete();
         return back();
+    }
+
+    public function update_location(Request $request,Position $position)
+    {
+        $this->validate($request,[
+            "title" => "required"
+        ]);
+        $position->title = $request->title;
+        $position->update();
+        return redirect('/admin-panel/location');
     }
 
 }

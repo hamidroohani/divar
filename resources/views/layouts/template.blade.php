@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/gif" href="{{ asset('img/logo.jpg') }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{--styles--}}
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
@@ -17,15 +19,12 @@
     <link href='http://www.fontonline.ir/css/BYekan.css' rel='stylesheet' type='text/css'>
     <link href='http://www.fontonline.ir/css/Mj_Silicon.css' rel='stylesheet' type='text/css'>
 
+    {{--scripts--}}
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <style type="text/css">
-        @font-face {
-            font-family: OptimusPrinceps;
-            src: url('{{ public_path('../../assets/fonts/IranianSans.ttf') }}'),
-            url("{{ public_path('../../assets/fonts/Broya.woff') }}"),
-            url("{{ public_path('../../assets/fonts/IranianSans.ttf') }}");
-        }
-
         body {
             font-family: Montserrat, BYekan;
         }
@@ -34,10 +33,6 @@
             font-family: BRoya;
         }
     </style>
-
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <style>
         .alert {
             position: fixed;
@@ -51,7 +46,7 @@
         }
 
         .search {
-            width: 130px;
+            width: 100px;
             height: 30px;
             margin: 10px 0;
             margin-right: 50px;
@@ -68,7 +63,7 @@
         }
 
         .search:focus {
-            width: 25%;
+            width: 120px;
         }
 
         /* Remove the navbar's default rounded borders and increase the bottom margin */
@@ -91,8 +86,6 @@
     </style>
 </head>
 <body>
-
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -136,12 +129,12 @@
                     <i class="fa fa-search"></i>
                 </button>
             </form>
+
         </div>
     </div>
 </nav>
 @yield('content')
 <br><br>
-
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
@@ -164,7 +157,9 @@
     </div>
 </div>
 
-
+@if(count($errors))
+    <div class="alert alert-danger">Error:{{$errors->first()}}</div>
+@endif
 <footer class="container-fluid text-center">
     <p>&COPY; <a href="/">Business Rental System</a>. All Rights Resreved 2018.</p>
 </footer>

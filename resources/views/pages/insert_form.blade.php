@@ -47,9 +47,6 @@
                                 <button class="btn btn-primary">Save</button>
                             </form>
                             <div class="clearfix"></div>
-                            @if(count($errors))
-                                <div class="alert alert-danger">Error:{{$errors->first()}}</div>
-                            @endif
                         </div>
                     </div>
                 </div>
