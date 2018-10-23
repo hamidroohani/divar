@@ -27,24 +27,25 @@ Route::get('/categories','CategoryController@categories');
 Route::get('/categories/{id}','CategoryController@show_categories');
 Route::get('/aboutus','ContactController@about_us');
 
-Route::group(['middleware' => AdminAuth::class],function (){
-    Route::get('/admin-panel','AdminController@order_items');
-    Route::get('/admin-panel/users','AdminController@users');
-    Route::get('/admin-panel/users/delete','AdminController@delete_users');
-    Route::get('/admin-panel/items','AdminController@items');
-    Route::get('/admin-panel/order_items','AdminController@order_items');
-    Route::get('/admin-panel/items/accept/{id}','AdminController@accept_items');
-    Route::get('/admin-panel/items/information/{id}','AdminController@info_items');
-    Route::get('/admin-panel/items/delete','AdminController@delete_items');
-    Route::get('/admin-panel/items/delete/{id}','AdminController@delete_item');
-    Route::get('/admin-panel/category','AdminController@categories');
-    Route::get('/admin-panel/add_category','AdminController@add_category');
-    Route::get('/admin-panel/category/update/{category}','AdminController@update_category');
-    Route::get('/admin-panel/category/delete/{id}','AdminController@del_category');
-    Route::get('/admin-panel/location','AdminController@location');
-    Route::get('/admin-panel/add_location','AdminController@add_location');
-    Route::get('/admin-panel/location/delete/{id}','AdminController@del_location');
-    Route::get('/admin-panel/location/update/{position}','AdminController@update_location');
+Route::group(['middleware' => AdminAuth::class , 'prefix' => "admin-panel"],function (){
+    Route::get('/','AdminController@order_items');
+    Route::get('/users','AdminController@users');
+    Route::get('/users/delete','AdminController@delete_users');
+    Route::get('/items','AdminController@items');
+    Route::get('/order_items','AdminController@order_items');
+    Route::get('/items/accept/{id}','AdminController@accept_items');
+    Route::get('/items/information/{id}','AdminController@info_items');
+    Route::get('/items/delete','AdminController@delete_items');
+    Route::get('/items/delete/{id}','AdminController@delete_item');
+    Route::get('/category','AdminController@categories');
+    Route::get('/add_category','AdminController@add_category');
+    Route::get('/category/update/{category}','AdminController@update_category');
+    Route::get('/category/delete/{id}','AdminController@del_category');
+    Route::get('/location','AdminController@location');
+    Route::get('/add_location','AdminController@add_location');
+    Route::get('/location/delete/{id}','AdminController@del_location');
+    Route::get('/location/update/{position}','AdminController@update_location');
 });
+
 
 

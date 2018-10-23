@@ -6,9 +6,6 @@
 </style>
 @section('content')
     <div class="container">
-        @if(Session()->has('message'))
-            <div class="alert alert-success"><b>{{Session('message')}}</b></div>
-        @endif
         <div class="row">
             @for($i = (count($items)) - 1; $i >= 0; $i--)
                 @if($items[$i]->show)

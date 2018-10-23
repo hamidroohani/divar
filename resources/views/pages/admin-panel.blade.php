@@ -81,7 +81,7 @@
                                     {{ $item->id }}
                                 </td>
                                 <td>{{ $item->title }}</td>
-                                <td>{{ $categories[$item->category_id]->title }}</td>
+                                <td>{{ $categories[$item->category_id -1]->title }}</td>
                                 <td>{{ $item->position }}</td>
                                 <td>{{ $item->price }}</td>
                             </tr>

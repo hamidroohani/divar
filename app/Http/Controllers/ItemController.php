@@ -49,4 +49,5 @@ class ItemController extends Controller
         $categories = Category::all();
         return view('pages.search',compact('items','categories'));
     }
+
 }

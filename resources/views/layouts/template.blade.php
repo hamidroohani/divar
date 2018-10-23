@@ -24,6 +24,12 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script>
+        $(function () {
+            $('div.alert').delay(3000).slideUp(3000);
+        })
+    </script>
+
     <style type="text/css">
         body {
             font-family: Montserrat, BYekan;
@@ -156,6 +162,9 @@
 
     </div>
 </div>
+@if(Session()->has('message'))
+    <div class="alert alert-success"><b>{{Session('message')}}</b></div>
+@endif
 
 @if(count($errors))
     <div class="alert alert-danger">Error:{{$errors->first()}}</div>

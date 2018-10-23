@@ -24,7 +24,7 @@
                                 <br>
                                 <br>
                                 <label for="img_id" class="floatright">:افزودن عکس</label>
-                                <input type="file" class="form-control" name="img_id">
+                                <input type="file" class="form-control" name="img_id" accept="image/*">
                                 <br>
                                 <label for="price" class="floatright">:قیمت </label>
                                 <input type="number" name="price" class="form-control centeralign" placeholder="ریال">
