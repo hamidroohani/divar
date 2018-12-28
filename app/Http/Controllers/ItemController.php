@@ -14,7 +14,7 @@ class ItemController extends Controller
 {
     public function show()
     {
-        $items = Item::all();
+        $items = Item::latest($column = 'created_at')->get();
         $categories = Category::all();
         return view('index',compact('items','categories'));
     }
@@ -45,7 +45,10 @@ class ItemController extends Controller
         $this->validate($request,[
             'search' => 'required|min:4'
         ]);
-        $items = DB::table('items')->where('title', 'like', "%{$request->search}%")->get();
+        $items = DB::table('items')
+            ->where('title', 'like', "%{$request->search}%")
+            ->orderBy('created_at','desc')
+            ->get();
         $categories = Category::all();
         return view('pages.search',compact('items','categories'));
     }

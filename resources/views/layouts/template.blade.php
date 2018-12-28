@@ -26,7 +26,7 @@
 
     <script>
         $(function () {
-            $('div.alert').delay(3000).slideUp(3000);
+            $('div.alert').delay(4000).slideUp(4000);
         })
     </script>
 
@@ -127,7 +127,7 @@
                 <li><a href="/insert_form"><span style="color: red"><b>ایجاد آگهی جدید</b></span></a></li>
                 <li><a href="/my_items"><b>آگهی های من</b></a></li>
                 <li><a href="/categories"><b>دسته بندی</b></a></li>
-                <li class="floatright"><a href="/"><b>خانه</b></a></li>
+                <li class="floatright" ><a href="/"><b>خانه</b></a></li>
             </ul>
             <form action="/search_items" method="get">
                 <input type="text" name="search" class="search" style='float:right;direction:rtl' placeholder="جستجو..">
